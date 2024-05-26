@@ -2,8 +2,8 @@ name: Build on DockerHub
 on:
   push:
 env:
-  DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-  DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,9 +22,10 @@ jobs:
       with:
         context: ./
         push: true
-        tags: moisesgc/webacademy:latest
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Fazendo deploy
-      run: echo "Deploy com sucesso!"
+        #dockerfile: ./Dockerfile   # Specify the path to your Dockerfile
+        tags: allancaguiar/webacademy:latest
+deploy:
+  runs-on: ubuntu-latest
+  steps:
+  - name: Fazendo deploy
+    run: echo "Deploy com sucesso!"
